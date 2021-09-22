@@ -4,7 +4,7 @@ import Question from './components/Question'
 function App() {
   return (
     <div>
-      Hello World
+      <h1>Magic 8-Ball</h1>
       <Question />
     </div>
   )
