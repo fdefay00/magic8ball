@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import Button from './Button'
 
-export default function Question({handleSubmit}) {
+export default function Question({handleAnswer}) {
   const [question, setQuestion] = useState('')
   const [validationError, setValidationError] = useState('')
 
@@ -24,12 +24,24 @@ export default function Question({handleSubmit}) {
     }
     setValidationError('')
     setQuestion('')
-    // fetchAnswer(question)
+    fetchAnswer(question)
   }
 
   // send request to Api upon successful question validation
-  function fetchAnswer() {
-    axios.get().then().catch()
+  function fetchAnswer(question) {
+    const url = `https://8ball.delegator.com/magic/JSON/${question}`
+    axios
+      .get(url)
+      .then((res) => {
+        const ballAnswer = {
+          question: question,
+          answer: res.data.magic.answer,
+        }
+        handleAnswer(ballAnswer)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   return (

@@ -1,5 +1,5 @@
 import React from 'react'
 
-export default function Answer() {
-  return <div>Answer</div>
+export default function Answer({answer}) {
+  return <div>{answer}</div>
 }
