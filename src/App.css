@@ -1,0 +1,72 @@
+:root {
+  --clr-primary: #585858;
+  --clr-secondary: #f25f25;
+  --clr-third: #25b8f2;
+
+  --ff-primary: 'Josefin Sans', sans-serif;
+}
+
+.loader-wrapper {
+  /* width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0; */
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  /* justify-content: center;
+  align-items: center;
+  z-index: 1;
+  font-family: 'J'; */
+}
+
+.loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 4px solid var(--clr-third);
+  animation: loader 2s infinite ease;
+}
+
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  /* width: 100%; */
+  background-color: #fff;
+  animation: loader-inner 2s infinite ease-in;
+}
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+  25% {
+    height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+  75% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
+}

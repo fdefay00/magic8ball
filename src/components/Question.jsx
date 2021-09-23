@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import Button from './Button'
 
-export default function Question({handleAnswer}) {
+export default function Question({handleAnswer, setLoading}) {
   const [question, setQuestion] = useState('')
   const [validationError, setValidationError] = useState('')
 
@@ -14,8 +14,7 @@ export default function Question({handleAnswer}) {
   // validate input before submitting
   function validate(e) {
     e.preventDefault()
-    // check if there's at least one letter plus question mark
-    // const test = /[a-z][A-Z]\?/
+    // check if there's at least one character in addition to question mark
     if (question.length < 2) {
       return setValidationError('Ask a valid question')
     }
@@ -29,6 +28,7 @@ export default function Question({handleAnswer}) {
 
   // send request to Api upon successful question validation
   function fetchAnswer(question) {
+    setLoading(true)
     const url = `https://8ball.delegator.com/magic/JSON/${question}`
     axios
       .get(url)
