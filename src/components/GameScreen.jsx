@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 
 import Title from './Title'
 import Image from './Image'
@@ -11,8 +11,9 @@ const history = []
 
 export default function GameScreen() {
   const [answer, setAnswer] = useState() //current displayed answer
-  const [loading, setLoading] = useState(false)
-
+  // const [loading, setLoading] = useState(false)
+  const loading = useRef(false)
+  console.log(history)
   //handle new answer coming in
   function handleAnswer(answer) {
     setAnswer((prevAns) => {
@@ -20,7 +21,7 @@ export default function GameScreen() {
       if (prevAns) history.push(prevAns)
       // limit history to 10
       if (history.length > 10) history.shift()
-      setLoading(false)
+      loading.current = false
 
       return answer
     })
@@ -29,8 +30,8 @@ export default function GameScreen() {
     <div>
       <Title />
       <Image />
-      {loading ? <Loader /> : <Answer answer={answer?.answer} />}
-      <Question handleAnswer={handleAnswer} setLoading={setLoading} />
+      {loading.current ? <Loader /> : <Answer answer={answer?.answer} />}
+      <Question handleAnswer={handleAnswer} loading={loading} />
       <History history={history} />
     </div>
   )

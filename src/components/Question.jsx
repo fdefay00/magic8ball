@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import Button from './Button'
 
-export default function Question({handleAnswer, setLoading}) {
+export default function Question({handleAnswer, loading}) {
   const [question, setQuestion] = useState('')
   const [validationError, setValidationError] = useState('')
 
@@ -28,7 +28,7 @@ export default function Question({handleAnswer, setLoading}) {
 
   // send request to Api upon successful question validation
   function fetchAnswer(question) {
-    setLoading(true)
+    loading.current = true
     const url = `https://8ball.delegator.com/magic/JSON/${question}`
     axios
       .get(url)
