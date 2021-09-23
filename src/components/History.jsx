@@ -1,19 +1,29 @@
 import React, {useState} from 'react'
 import Button from './Button'
 
-export default function History() {
+export default function History({history}) {
   const [showHistory, setShowHistory] = useState(false)
 
   // dynamic button label based
   let label = showHistory ? 'Hide History' : 'Show History'
+
+  const questions = (
+    <ul>
+      {history.map((history, i) => (
+        <li key={i}>
+          {history.question} {history.answer}
+        </li>
+      ))}
+    </ul>
+  )
 
   function handleClick() {
     setShowHistory((prev) => !prev)
   }
   return (
     <div>
-      <Button label={label} onClick={handleClick} />
-      {showHistory && <p>Show History</p>}
+      <Button label={label} handleClick={handleClick} />
+      {showHistory && questions}
     </div>
   )
 }

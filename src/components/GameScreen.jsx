@@ -6,19 +6,18 @@ import Answer from './Answer'
 import Question from './Question'
 import History from './History'
 
+const history = []
 export default function GameScreen() {
-  const [answer, setAnswer] = useState({}) //current displayed answer
-  const [history, setHistory] = useState([])
+  const [answer, setAnswer] = useState() //current displayed answer
 
   //handle new answer coming in
   function handleAnswer(answer) {
     setAnswer((prevAns) => {
       //update history array when current answer changes
-      setHistory((prevHis) => {
-        const updatedHistory = [...prevHis, prevAns]
-        if (updatedHistory.length > 10) updatedHistory.shift()
-        return updatedHistory
-      })
+      if (prevAns) history.push(prevAns)
+      // limit history to 10
+      if (history.length > 10) history.shift()
+      console.log({history})
 
       return answer
     })
@@ -27,7 +26,7 @@ export default function GameScreen() {
     <div>
       <Title />
       <Image />
-      <Answer answer={answer.answer} />
+      <Answer answer={answer?.answer} />
       <Question handleAnswer={handleAnswer} />
       <History history={history} />
     </div>
