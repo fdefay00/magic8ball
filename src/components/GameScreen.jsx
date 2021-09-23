@@ -19,6 +19,7 @@ export default function GameScreen() {
         if (updatedHistory.length > 0) updatedHistory.shift()
         return updatedHistory
       })
+
       return Answer
     })
   }
