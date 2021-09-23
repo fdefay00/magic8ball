@@ -7,7 +7,7 @@ import Question from './Question'
 import History from './History'
 
 export default function GameScreen() {
-  const [answer, setAnswer] = useState('')
+  const [answer, setAnswer] = useState('') //current displayed answer
   const [history, setHistory] = useState([])
 
   //handle new answer coming in
