@@ -3,6 +3,8 @@
 An app for tracking reviews of dishes at different restaurants.
 
 Production: https://fabrice-magic-8-ball.netlify.app/
+Github Repo link: https://github.com/fdefay00/magic8ball.git
+Trello link: https://trello.com/invite/b/ath0nlpF/aa145302d42897cd1d1b650604e8fcc3/twisted-rope
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
