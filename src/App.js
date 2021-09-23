@@ -1,11 +1,9 @@
-import logo from './logo.svg'
-import Question from './components/Question'
+import GameScreen from './components/GameScreen'
 
 function App() {
   return (
     <div>
-      <h1>Magic 8-Ball</h1>
-      <Question />
+      <GameScreen />
     </div>
   )
 }
