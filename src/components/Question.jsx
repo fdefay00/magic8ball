@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import Button from './Button'
 
 export default function Question() {
   const [question, setQuestion] = useState('')
@@ -10,6 +11,8 @@ export default function Question() {
   return (
     <form>
       <input type="text" className="question" value={question} onChange={handleChange} />
+      <br />
+      <Button label="Submit" />
     </form>
   )
 }
