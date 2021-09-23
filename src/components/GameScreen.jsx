@@ -11,9 +11,8 @@ const history = []
 
 export default function GameScreen() {
   const [answer, setAnswer] = useState() //current displayed answer
-  // const [loading, setLoading] = useState(false)
   const loading = useRef(false)
-  console.log(history)
+
   //handle new answer coming in
   function handleAnswer(answer) {
     setAnswer((prevAns) => {
