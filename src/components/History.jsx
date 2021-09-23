@@ -11,7 +11,7 @@ export default function History({history}) {
     <ul>
       {history.map((history, i) => (
         <li key={i}>
-          {history.question} {history.answer}
+          Q{i + 1}- {history.question} {history.answer}
         </li>
       ))}
     </ul>

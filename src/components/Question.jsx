@@ -45,11 +45,19 @@ export default function Question({handleAnswer, setLoading}) {
   }
 
   return (
-    <form onSubmit={validate}>
-      {validationError && <p>{validationError}</p>}
-      <input type="text" className="question" value={question} onChange={handleChange} />
-      <br />
-      <Button label="Submit" type="submit" />
-    </form>
+    <div className="input-area">
+      <form onSubmit={validate}>
+        <input
+          type="text"
+          placeholder="Ask your question..."
+          className="question"
+          value={question}
+          onChange={handleChange}
+        />
+        {validationError && <p className="error">{validationError}</p>}
+        <br />
+        <Button label="Submit" type="submit" />
+      </form>
+    </div>
   )
 }
