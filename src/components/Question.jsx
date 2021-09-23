@@ -40,7 +40,12 @@ export default function Question({handleAnswer, loading}) {
         handleAnswer(ballAnswer)
       })
       .catch((err) => {
-        console.log(err)
+        const ballAnswer = {
+          question: question,
+          answer:
+            'There was a problem that prevented us from getting your answer. Please try again later',
+        }
+        handleAnswer(ballAnswer)
       })
   }
 
