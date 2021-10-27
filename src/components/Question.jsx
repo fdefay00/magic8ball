@@ -33,6 +33,7 @@ export default function Question({handleAnswer, loading}) {
     axios
       .get(url)
       .then((res) => {
+        console.log(res)
         const ballAnswer = {
           question: question,
           answer: res.data.magic.answer,
@@ -40,6 +41,7 @@ export default function Question({handleAnswer, loading}) {
         handleAnswer(ballAnswer)
       })
       .catch((err) => {
+        console.log(err)
         const ballAnswer = {
           question: question,
           answer:

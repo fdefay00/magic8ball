@@ -1,0 +1,11 @@
+Magic 8 Ball
+Functionality
+- Ask question
+- Get response from API
+- Display response to screen
+
+Emphasis:
+- Version Control
+- Testing
+- Code modularity/Shareability 
+- Comments

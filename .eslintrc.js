@@ -1,6 +1,6 @@
 module.exports = {
-  extends: ['react-app'],
-  plugins: ['jest', 'cypress'],
+  extends: ['react-app', 'prettier'],
+  plugins: ['prettier', 'jest', 'cypress'],
   parser: 'babel-eslint',
   env: {
     browser: true,
@@ -12,5 +12,8 @@ module.exports = {
     react: {
       version: 'detect',
     },
+  },
+  rules: {
+    'prettier/prettier': 'warn',
   },
 }

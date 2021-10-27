@@ -1,0 +1,19 @@
+1. History doesn’t work correctly. Always one question and answer behind the current one. If you ask a question, and it returns an answer, the question and answer won’t show up in history. This should be updated with the current answer each time.
+
+-> wasn't sure whether current had to be part of history or not
+
+2. Also, history items are labeled Q1, Q2, but this is confusing when we get past 10 because then the queston/answer combination for all the entries changes, such that what was formerly Q2 is now Q1, what was Q3 is now Q2. The labels actually make the history less clear.
+
+-> wouldve made for much better UX
+
+3. Handles an error from the server, (when I put ‘??’ as the question), but it treats it as a valid response for history purposes. This is an odd design decision. Also, the error response appears in the same location as a valid response, instead of appearing as a form error like the empty/invalid input errors.
+
+-> Should've gone with regex match. the api handles some symbols but not all. I ended up validating the 2 use cases mentioned
+
+4. Uses useRef hook to track loading state instead of useState hook. I guess this makes sense if you don’t want to show a loading indicator, but this applicant does have a loader component that is never being shown because useRef does not trigger a rerender when its value changes.
+
+5. The setAnswer updater function returned from useState is not a pure function, but it should be.
+
+5'. The history array updates and loading ref can be updated in the handleAnswer function body, but should not be handled in the setAnswer callback. The applicant could have simply passed answer to setAnswer and handled everything else either before or after.
+
+-> definitely a bad implementation of the feature
