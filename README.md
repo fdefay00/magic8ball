@@ -1,6 +1,6 @@
 # Magic 8 Ball
 
-An app for tracking reviews of dishes at different restaurants.
+An app for getting answers from the Magic 8-Ball.
 
 Production link: https://fabrice-magic-8-ball.netlify.app/ \
 Github Repo link: https://github.com/fdefay00/magic8ball.git \
